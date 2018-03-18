@@ -1,0 +1,5 @@
+DEPENDENCIES = \
+vacancy_bc.dep\
+theta_bc.dep\
+o2suf_bc.dep\
+Sr_o2p.dep

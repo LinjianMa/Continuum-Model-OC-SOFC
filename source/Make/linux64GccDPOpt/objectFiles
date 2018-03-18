@@ -1,0 +1,5 @@
+OBJECTS = \
+$(OBJECTS_DIR)/vacancy_bc.o\
+$(OBJECTS_DIR)/theta_bc.o\
+$(OBJECTS_DIR)/o2suf_bc.o\
+$(OBJECTS_DIR)/Sr_o2p.o

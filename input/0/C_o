@@ -1,0 +1,67 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      Phi_lc;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform   554;   
+
+boundaryField
+{
+    upface
+    {
+        type            zeroGradient;
+    }
+
+    downface
+    {
+	type             vacancy_bc;
+        D_v              8e-4;//3.4593e-4;
+	Sp_CGO_MIEC      0.4109589;
+        kplus0           2.2347e13;
+        kminus0          2.2347e13;
+        kplus1           1.6570e7;//3.3140e7;  //1.24229ev                             2.0197e8;   // 1.075ev
+        kminus1          0.61715e7;//1.2343e7;  //1.33371ev                             2.0253e6;   // 1.501ev
+        kplus2           2.2347e13; //0.00000ev                             2.2347e13;  // 0ev
+        kminus2          7.2423e11; //0.31742ev                             1.9499e10;  // 0.652ev
+        kplus3           2.2347e13; //0.00000ev                             2.0234e12;  // 0.22232ev
+        kminus3          4.8169e9;  //0.78142ev                             2.2347e13;  // 0ev
+        kplus4           2.0509e8;  //1.07358ev                             7.6174e9;   // 0.739ev
+        kminus4          2.2347e13; //0.00000ev                             2.2347e13;  // 0ev
+        kplus5           2.2347e13;
+        kminus5          2.2347e13;
+	T               1073;
+        d_phi           -0.08722;//0.062555;//-0.06432;//-0.02159;//-0.01013;//0;//-0.04009;//-0.04846;//
+	C_omax          83147;
+	alpha_1         1;
+	alpha_2         1;
+	var_energy	130;
+	var_diff	65;
+	gradient        uniform 0.0;        
+	value           uniform 554; 
+    }
+
+    fixedWalls
+    {
+        type            zeroGradient;
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+// ************************************************************************* //

@@ -1,0 +1,1 @@
+EXE = $(FOAM_APPBIN)/Sr_o2p

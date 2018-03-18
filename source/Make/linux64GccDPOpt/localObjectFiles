@@ -1,0 +1,5 @@
+LOCAL_OBJECTS = \
+vacancy_bc.o\
+theta_bc.o\
+o2suf_bc.o\
+Sr_o2p.o

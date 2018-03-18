@@ -1,0 +1,121 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    D_v
+    {
+	solver           PCG;
+        preconditioner   DIC;
+        tolerance        1e-11;
+        relTol           0;
+    }
+
+    grad_phi_o
+    {
+	solver           PCG;
+        preconditioner   DIC;
+        tolerance        1e-11;
+        relTol           0;
+    }
+
+    C_v
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+        tolerance        1e-11;
+        relTol           0;
+    }
+
+    C_o2suf
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+        tolerance        1e-11;
+        relTol           0;
+    }
+
+    C_vsuf
+    {
+        solver           PBiCG;
+        preconditioner   DILU;
+	//solver           PCG;
+        //preconditioner   DIC;
+        tolerance        1e-11;
+        relTol           0;
+    }
+
+    y_o2
+    {
+        solver           PCG;
+        preconditioner   DIC;
+        tolerance        1e-11;
+        relTol           0;
+    }
+
+    C_ads
+    {
+        solver           PCG;
+        preconditioner   DIC;
+        tolerance        1e-11;
+        relTol           0;
+    }
+}
+
+relaxationFactors
+{
+
+        "C_v"            0.95; // 0.9 is more stable but 0.95 more convergent
+        "C_o2suf"        0.95; // 0.9 is more stable but 0.95 more convergent
+        "C_vsuf"         0.95; 
+	"y_o2"           0.95; 
+}
+
+solverControls
+{
+kox_MIEC_Gas_2      3.3493e11; //0.3888ev
+kred_MIEC_Gas_2     2.2347e13; //0ev
+kox_MIEC_Gas_2_1    2.03546e8; 
+kred_MIEC_Gas_2_1   2.2347e13; //0ev
+kox_MIEC_Gas_2_2    2.2347e13; //0ev
+kred_MIEC_Gas_2_2   2.5033e4; 
+kox_MIEC_Gas_2_3    4.11913e7; 
+kred_MIEC_Gas_2_3   2.2347e13; //0ev
+kox_MIEC_Gas        3.217295e2;//1.88748e2;//4.7187e2;//1.88748e2;  //2.17ev
+kred_MIEC_Gas       4.824886e4;//2.8306e6;//7.0765e4;//2.8306e9;   //0.67ev    *2.0322
+kdes                2.2347e8; //0ev
+kads                6.06167e7;               ///2.0322
+kdes_phys           2.2347e13; //0ev
+kads_phys           2.06198e11; //-0.7ev
+F                   96485;
+T                   1073;
+R                   8.31;
+C_omax              83147;
+C_omax_suf          50;
+D_v_ref		    4e-4;
+var_energy	    120;
+var_diff	    84;
+var_k    	    132;
+time_vsuf	    1e1;
+time_o2suf	    1e3;
+over_p		    0;//0.010573;
+over_ratio          2;
+alpha_surf          0.75;
+per_surf            0.13;
+}
+
+// ************************************************************************* //

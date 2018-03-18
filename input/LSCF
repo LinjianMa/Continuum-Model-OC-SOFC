@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -q secondary
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=02:00:00
+#PBS -j oe
+#PBS -o simout
+#PBS -N LSCF2
+cd ${PBS_O_WORKDIR}
+
+module load intel/13.1
+module load openmpi/1.8.4-gcc-4.9.2
+module load mvapich2/1.9b-intel-13.1
+source $HOME/OpenFOAM/OpenFOAM-2.2.x/etc/bashrc
+
+#Sr_o2p
+mpirun -np 12 Sr_o2p -parallel 
+

@@ -1,0 +1,6 @@
+vacancy_bc.C
+theta_bc.C
+o2suf_bc.C
+Sr_o2p.C
+
+EXE = $(FOAM_APPBIN)/Sr_o2p
